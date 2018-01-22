@@ -2,6 +2,9 @@ bin_PROGRAMS = correct-horse
 
 if GTK_FOUND
   bin_PROGRAMS += correct-horse-gtk
+
+  desktop_DATA = correct-horse.desktop
+  desktopdir = $(datadir)/applications
 endif
 
 lib_LTLIBRARIES = libcorrecthorse.la
