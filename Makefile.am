@@ -5,6 +5,9 @@ if GTK_FOUND
 
   desktop_DATA = correct-horse.desktop
   desktopdir = $(datadir)/applications
+
+  icon16_DATA = correct-horse.png
+  icon16dir = $(datadir)/icons/hicolor/16x16/apps
 endif
 
 lib_LTLIBRARIES = libcorrecthorse.la
