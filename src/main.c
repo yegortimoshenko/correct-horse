@@ -8,22 +8,20 @@ int main(int argc, char *argv[]) {
   char *delim = " ";
   unsigned long n = 6;
 
-  for (;;) {
+  for (;;)
     switch (getopt(argc, argv, "d:n:")) {
     case 'd':
       delim = optarg;
-      continue;
+      break;
     case 'n':
       sscanf(optarg, "%lu", &n);
-      continue;
-    case -1:
       break;
+    case -1:
+      goto passphrase;
     default:
       return EXIT_FAILURE;
     }
 
-    break;
-  }
-
+ passphrase:
   puts(correct_horse_random_passphrase(delim, n));
 }
