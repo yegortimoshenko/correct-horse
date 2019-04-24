@@ -5,11 +5,11 @@
 GtkWidget *bar, *button, *entry, *spinner, *window;
 
 void correct_horse_gtk_generate() {
-  g_autofree gchar *password, *subtitle;
+  g_autofree gchar *passphrase, *subtitle;
   long n = gtk_spin_button_get_value(GTK_SPIN_BUTTON(spinner));
 
-  password = correct_horse_random_passphrase(" ", n);
-  gtk_entry_set_text(GTK_ENTRY(entry), password);
+  passphrase = correct_horse_random_passphrase(" ", n);
+  gtk_entry_set_text(GTK_ENTRY(entry), passphrase);
 
   if (G_UNLIKELY(asprintf(&subtitle, "%d words, %d bits", n, 16 * n) < 0))
     g_error("asprintf: allocation failure");
