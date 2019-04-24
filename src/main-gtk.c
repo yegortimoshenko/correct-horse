@@ -1,6 +1,6 @@
 #define _GNU_SOURCE
-#include <gtk/gtk.h>
 #include "random.h"
+#include <gtk/gtk.h>
 
 GtkWidget *bar, *button, *entry, *spinner, *window;
 
@@ -27,12 +27,15 @@ int main(int argc, char *argv[]) {
   gtk_window_set_title(GTK_WINDOW(window), "Correct Horse");
   g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
-  button = gtk_button_new_from_icon_name("view-refresh-symbolic", GTK_ICON_SIZE_BUTTON);
-  g_signal_connect(button, "clicked", G_CALLBACK(correct_horse_gtk_generate), NULL);
+  button = gtk_button_new_from_icon_name("view-refresh-symbolic",
+                                         GTK_ICON_SIZE_BUTTON);
+  g_signal_connect(button, "clicked", G_CALLBACK(correct_horse_gtk_generate),
+                   NULL);
 
   spinner = gtk_spin_button_new_with_range(2, 16, 1);
   gtk_spin_button_set_value(GTK_SPIN_BUTTON(spinner), 6);
-  g_signal_connect(spinner, "value-changed", G_CALLBACK(correct_horse_gtk_generate), NULL);
+  g_signal_connect(spinner, "value-changed",
+                   G_CALLBACK(correct_horse_gtk_generate), NULL);
 
   bar = gtk_header_bar_new();
   gtk_header_bar_pack_start(GTK_HEADER_BAR(bar), button);

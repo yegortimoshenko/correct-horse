@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 #include "random.h"
@@ -22,6 +22,6 @@ int main(int argc, char *argv[]) {
       return EXIT_FAILURE;
     }
 
- passphrase:
+passphrase:
   puts(correct_horse_random_passphrase(delim, n));
 }
