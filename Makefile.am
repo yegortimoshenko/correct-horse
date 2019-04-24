@@ -23,4 +23,4 @@ correct_horse_gtk_LDADD = $(GTK_LIBS) $(lib_LTLIBRARIES)
 BUILT_SOURCES = src/dictionary.h
 
 src/dictionary.h: src/dictionary.txt
-	head -65536 $< | ./list-to-header.sh correct_horse_dictionary > $@
+	head -65536 $< | ./arraify correct_horse_dictionary > $@
