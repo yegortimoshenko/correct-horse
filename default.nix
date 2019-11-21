@@ -1,11 +1,15 @@
-{ pkgs ? import ./pkgs.nix {} }: with pkgs;
+{ pkgs ? import ./pkgs.nix {} }:
 
-stdenv.mkDerivation rec {
-  name = "correct-horse";
-  src = stdenv.lib.cleanSource ./.;
+with pkgs;
 
-  nativeBuildInputs = [ autoreconfHook pkgconfig ];
-  buildInputs = [ gtk3 ];
+{
+  correct-horse = stdenv.mkDerivation rec {
+    name = "correct-horse";
+    src = stdenv.lib.cleanSource ./.;
 
-  enableParallelBuilding = true;
+    nativeBuildInputs = [ autoreconfHook pkgconfig ];
+    buildInputs = [ gtk3 ];
+
+    enableParallelBuilding = true;
+  };
 }
