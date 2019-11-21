@@ -5,11 +5,9 @@ with pkgs;
 {
   correct-horse = stdenv.mkDerivation rec {
     name = "correct-horse";
-    src = stdenv.lib.cleanSource ./.;
+    src = lib.cleanSource ./.;
 
-    nativeBuildInputs = [ autoreconfHook pkgconfig ];
+    nativeBuildInputs = [ meson ninja pkgconfig ];
     buildInputs = [ gtk3 ];
-
-    enableParallelBuilding = true;
   };
 }
