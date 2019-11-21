@@ -5,7 +5,5 @@ with pkgs;
 mkShell {
   inputsFrom = lib.attrValues (import ./. { inherit pkgs; });
 
-  buildInputs = [
-    clang-tools
-  ];
+  buildInputs = [ clang-tools ];
 }
