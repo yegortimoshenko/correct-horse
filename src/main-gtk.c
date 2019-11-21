@@ -11,7 +11,7 @@ void correct_horse_gtk_generate() {
   passphrase = correct_horse_random_passphrase(" ", n);
   gtk_entry_set_text(GTK_ENTRY(entry), passphrase);
 
-  if (G_UNLIKELY(asprintf(&subtitle, "%d words, %d bits", n, 16 * n) < 0))
+  if (G_UNLIKELY(asprintf(&subtitle, "%ld words, %ld bits", n, 16 * n) < 0))
     g_error("asprintf: allocation failure");
 
   gtk_header_bar_set_subtitle(GTK_HEADER_BAR(bar), subtitle);
